@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Mano {
 
-    private final List<Carta> mano = new ArrayList<>();
+    private List<Carta> mano = new ArrayList<>();
     public Mano() {
     }
     
