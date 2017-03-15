@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Magic;
+package Phases;
 
 /**
  *
- * @author Davide
+ * @author Alessio
  */
-public interface Mostro {
-    public int getHealth();
-    public int getAttack();
-    public int getEffetto();
+public class CombatPhase implements Fase{
+    
 }

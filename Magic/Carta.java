@@ -10,8 +10,6 @@ package Magic;
  * @author adelcont
  */
 public interface Carta {
-   // il nome di una carta è l'identificatore per la carta
-    // poichè esso è univoco
     
     public String getNome();
     

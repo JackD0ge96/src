@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package Magic;
+
 public class Turno {
     Giocatore attuale;
     Giocatore successivo;
     
-    public Turno(){
-        attuale=
-    }
     
 }

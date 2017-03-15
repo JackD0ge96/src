@@ -8,20 +8,19 @@ package Cards;
 import Magic.GenericaCarta;
 import Magic.Istantanea;
 
-
 /**
  *
  * @author Davide
  */
 public class Omeopathy extends GenericaCarta implements Istantanea {
-    
+
     public Omeopathy() {
         super("Omeopathy", "Non ha alcun effetto", "Istantanea");
     }
 
     @Override
     public void attivaEffetto() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //non fa niente
     }
-    
+
 }

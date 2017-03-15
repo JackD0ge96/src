@@ -10,9 +10,10 @@ package Magic;
  * @author marco
  */
 public class Magic {
-    public static void main(String argv []){
-        Gioco gioco=Gioco.getInstance();
+
+    public static void main(String argv[]) {
+        Gioco gioco = Gioco.getInstance();
         gioco.prepare();
     }
-    
+
 }
