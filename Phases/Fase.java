@@ -10,5 +10,5 @@ package Phases;
  * @author Alessio
  */
 public interface Fase {
-    
+    public void playFase();
 }

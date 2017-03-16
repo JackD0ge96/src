@@ -5,10 +5,23 @@
  */
 package Phases;
 
+import Magic.*;
+
 /**
  *
  * @author Alessio
  */
 public class DrawPhase implements Fase {
+    Giocatore g1 = Gioco.getInstance().getCurrentPlayer();
+    
+    @Override
+    public void playFase() {
+        pesca();
+    }
+    
+    public void pesca(){
+        g1.aggiungiCarta();
+    }
+
     
 }

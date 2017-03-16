@@ -8,7 +8,8 @@ public class Giocatore {
     private int hp = 10;
     Mazzo deck = new Mazzo();
     Mano hand = new Mano();
-    
+    GestoreFasi fasi = new GestoreFasi();
+
     public Giocatore(String nome) {
         this.nome = nome;
     }
@@ -25,19 +26,19 @@ public class Giocatore {
         return deck.dimensioneMazzo();
     }
 
-    void riempiMazzo(Carta newCard) {
+    public void riempiMazzo(Carta newCard) {
         deck.riempiMazzo(newCard);
     }
 
-    void pescaInizio() {
+    public void pescaInizio() {
         hand.inizializzaMano(deck);
     }
 
-    int numeroCarteMano() {
+    public int numeroCarteMano() {
         return hand.numeroCarte();
     }
 
-    void aggiungiCarta() {
+    public void aggiungiCarta() {
         if (deck.dimensioneMazzo() == 0) {
             hp = 0;
         } else {
@@ -45,7 +46,7 @@ public class Giocatore {
         }
     }
 
-    void checkScarta() {
+    public void checkScarta() {
         while (hand.numeroCarte() > 7) {
             Scanner input = new Scanner(System.in);
             System.out.println("Hai troppe carte in mano, la tua mano è:");
@@ -55,4 +56,9 @@ public class Giocatore {
             hand.rimuoviCarta(x - 1);
         }
     }
+
+    public String getNome() {
+        return nome;
+    }
+
 }

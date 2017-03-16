@@ -83,4 +83,11 @@ public class GestoreFasi {
             if(f instanceof EndPhase)
                 fasi.remove(f);
     }
+    
+    public Fase popFase(){
+        if(!fasi.isEmpty())
+            return fasi.remove(0);
+        else 
+            return null;
+    }   
 }
