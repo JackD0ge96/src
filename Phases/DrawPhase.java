@@ -12,18 +12,22 @@ import Magic.*;
  * @author Alessio
  */
 public class DrawPhase implements Fase {
-    Giocatore g1 = Gioco.getInstance().getCurrentPlayer();
-    
+
     @Override
     public void playFase() {
+        Giocatore g1 = Gioco.getInstance().getCurrentPlayer();
         System.out.println("Draw Phase...");
-        System.out.println("Hai pescato: " + pesca().getInfo());
-        System.out.println(g1.numeroCarteMano());
-        System.out.println(g1.dimensioneMazzo());
-        g1.getHand().stampaMano();
+        try {
+            System.out.println("Hai pescato: " + pesca().getInfo());
+            g1.getHand().stampaMano();
+        } catch (NullPointerException e) {
+            System.out.println("Giocatore " + g1.getNome() + " hai finito il mazzo \n" + Gioco.getInstance().getOpponentPlayer().getNome() + " HAI VINTO");
+        }
     }
-    
-    public Carta pesca(){
+
+    public Carta pesca() {
+        Giocatore g1 = Gioco.getInstance().getCurrentPlayer();
         return g1.aggiungiCarta();
+
     }
 }

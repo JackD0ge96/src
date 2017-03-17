@@ -22,10 +22,12 @@ public class GestoreFasi {
     }
 
     public void fasiNormali() {
+        fasi.clear();
         addDraw();
-
+        addUntap();
+        addCombat();
         addMain();
-
+        addEnd();
     }
     
     public void addDraw() {

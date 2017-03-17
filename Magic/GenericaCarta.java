@@ -18,7 +18,10 @@ public abstract class GenericaCarta implements Carta {
 
     @Override
     public String getInfo() {
-        return nome + ", " + effetto + ", " + tipo;
+        if(this != null)
+            return nome + ", " + effetto + ", " + tipo;
+        else 
+            return null;
     }
 
     @Override
