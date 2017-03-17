@@ -6,16 +6,18 @@
 package Magic;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Campo  {
-    private final List<Carta> board = new ArrayList<>();
-    public void inserisci (Carta card){
-        board.add(card);
+    private List<Mostro> monsterBoard = new ArrayList<Mostro>();
+    //va aggiunta la lista per le stregonerie permanenti
+    public void inserisci (Mostro card){
+        monsterBoard.add(card);
         
     }
-    public void rimuovi(Carta card){
-        board.remove(card);
+    public void rimuovi(Mostro card){
+        monsterBoard.remove(card);
        
     }
   /*  public void stampaCreature(){
