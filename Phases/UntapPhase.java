@@ -4,16 +4,28 @@
  * and open the template in the editor.
  */
 package Phases;
+import Magic.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Alessio
- */
 public class UntapPhase implements Fase{
-
+    Giocatore g1=Gioco.getInstance().getCurrentPlayer();
+    Gioco.getInstance();
     @Override
     public void playFase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        unTap();
     }
+    
+     public void unTap(){
+         boolean tap=false;
+        for(Mostro m : board){
+            if(m.isTap()==true)
+                m.setTap(false);
+                
+            
+        }
+           
+     } 
+ 
     
 }

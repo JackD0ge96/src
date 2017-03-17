@@ -9,6 +9,7 @@ public class Giocatore {
     Mazzo deck = new Mazzo();
     Mano hand = new Mano();
     GestoreFasi fasi = new GestoreFasi();
+    Campo board= new Campo();
 
     public Giocatore(String nome) {
         this.nome = nome;
