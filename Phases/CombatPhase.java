@@ -13,7 +13,7 @@ public class CombatPhase implements Fase{
 
     @Override
     public void playFase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Combat Phase...");
     }
-    
+
 }

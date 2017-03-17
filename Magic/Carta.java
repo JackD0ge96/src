@@ -16,5 +16,6 @@ public interface Carta {
     public String getEffetto();
     
     public abstract String getInfo();
-
+    
+    public String getTipo();
 }

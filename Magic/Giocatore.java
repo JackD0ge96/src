@@ -1,10 +1,8 @@
 package Magic;
 
-import java.util.Scanner;
-
 public class Giocatore {
 
-    final String nome;
+    private final String nome;
     private int hp = 10;
     Mazzo deck = new Mazzo();
     Mano hand = new Mano();
@@ -38,27 +36,53 @@ public class Giocatore {
         return hand.numeroCarte();
     }
 
-    public void aggiungiCarta() {
+    public Carta aggiungiCarta() {
         if (deck.dimensioneMazzo() == 0) {
             hp = 0;
+            return null;
         } else {
-            hand.aggiungiCarta(deck);
+            return hand.aggiungiCarta(deck);
         }
+    }
+
+    public void stampaMano() {
+        hand.stampaMano();
     }
 
     public void checkScarta() {
         while (hand.numeroCarte() > 7) {
-            Scanner input = new Scanner(System.in);
             System.out.println("Hai troppe carte in mano, la tua mano è:");
-            hand.stampaMano();
+            stampaMano();
             System.out.println("Scegli la carta da scartare:");
-            int x = input.nextInt();
+            int x = Gioco.getInstance().rispostaGiocatore();
             hand.rimuoviCarta(x - 1);
         }
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public Mazzo getDeck() {
+        return deck;
+    }
+
+    public Mano getHand() {
+        return hand;
+    }
+
+    int getIstantanee() {
+        int cont = 0;
+        for (Carta tmp : hand.getMano()) {
+            if (tmp.getTipo().compareTo("Istantanea") == 0) {
+                cont++;
+            }
+        }
+        return cont;
+    }
+
+    void stampaIstantanee() {
+        hand.stampaIstantanee();
     }
 
 }

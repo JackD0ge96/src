@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Campo  {
-    private List<Carta> board = new ArrayList<Carta>();
+    private final List<Carta> board = new ArrayList<>();
     public void inserisci (Carta card){
         board.add(card);
         

@@ -6,9 +6,9 @@ package Magic;
  */
 public abstract class GenericaCarta implements Carta {
 
-    private String effetto;
+    private final String effetto;
     private final String nome;
-    private String tipo;
+    private final String tipo;
 
     public GenericaCarta(String nome, String effetto, String tipo) {
         this.nome = nome;
@@ -18,7 +18,7 @@ public abstract class GenericaCarta implements Carta {
 
     @Override
     public String getInfo() {
-        return this.getNome() + ", " + "Istantanea" + ", " + effetto;
+        return nome + ", " + effetto + ", " + tipo;
     }
 
     @Override
@@ -31,4 +31,9 @@ public abstract class GenericaCarta implements Carta {
         return effetto;
     }
 
+    @Override
+    public String getTipo() {
+        return tipo;
+    }
+    
 }
