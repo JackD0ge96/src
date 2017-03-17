@@ -23,10 +23,9 @@ public class GestoreFasi {
 
     public void fasiNormali() {
         addDraw();
-        addUntap();
-        addCombat();
+
         addMain();
-        addEnd();
+
     }
     
     public void addDraw() {

@@ -13,7 +13,7 @@ public class EndPhase implements Fase{
 
     @Override
     public void playFase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("End Phase...");
     }
     
 }

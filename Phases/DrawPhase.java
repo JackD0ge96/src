@@ -16,12 +16,14 @@ public class DrawPhase implements Fase {
     
     @Override
     public void playFase() {
-        pesca();
+        System.out.println("Draw Phase...");
+        System.out.println("Hai pescato: " + pesca().getInfo());
+        System.out.println(g1.numeroCarteMano());
+        System.out.println(g1.dimensioneMazzo());
+        g1.getHand().stampaMano();
     }
     
-    public void pesca(){
-        g1.aggiungiCarta();
+    public Carta pesca(){
+        return g1.aggiungiCarta();
     }
-
-    
 }
