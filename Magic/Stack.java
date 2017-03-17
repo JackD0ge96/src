@@ -24,7 +24,10 @@ public class Stack {
     /*verrà implementato in seguito quando ci saranno effetti da risolvere*/
     public void risolviStack() {
         while (!myStack.empty()) {
-            myStack.pop().getInfo();
+            Carta temp = myStack.pop();
+            if(temp.getInfo().compareTo("Mostro") == 0 || temp.getInfo().compareTo("Stregoneria") == 0)
+                //inserisci nel campo del giocatore 
+                ;
         }
         System.out.println("Risoluzione Stack in corso...");
         //prendo la carta restituita dalla pop() ed eseguo il suo effetto
@@ -43,7 +46,7 @@ public class Stack {
                 System.out.println("Giocatore " + opponentPlayer.getNome() + " scegli una carta con cui rispondere");
                 int x = Gioco.getInstance().rispostaGiocatore();
                 if (x != 0) {
-                    Carta cartaGiocare = currentPlayer.getHand().rimuoviIstantanea(x - 1);
+                    Carta cartaGiocare = opponentPlayer.getHand().rimuoviIstantanea(x - 1);
                     inserimentoStack(cartaGiocare, opponentPlayer);
                     contatorePass = 0;
                 } else {
@@ -52,13 +55,10 @@ public class Stack {
             } else {
                 contatorePass++;
             }
-            System.out.println(currentPlayer.getHand().numeroCarte() + " " + contatorePass);
-            System.out.println(opponentPlayer.getHand().numeroCarte());
             /*ora inverto i ruoli e ricomincio il ciclo*/
             Giocatore temp = currentPlayer;
             currentPlayer = opponentPlayer;
             opponentPlayer = temp;
         }
-        System.out.println("sono uscito");
     }
 }

@@ -13,7 +13,7 @@ public class UntapPhase implements Fase{
 
     @Override
     public void playFase() {
-        //
+        System.out.println("Untap Phase...");
     }
     
 }

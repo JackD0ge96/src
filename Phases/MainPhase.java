@@ -24,17 +24,21 @@ public class MainPhase implements Fase {
         currentPlayer.checkScarta();
 
         /*stampo la mano e faccio scegliere al giocatore quale carta giocare*/
-        System.out.println("La tue carte in mano sono: ");
+        System.out.println("La tue carte in mano sono: " + currentPlayer.numeroCarteMano());
         currentPlayer.stampaMano();
         System.out.println("Scegli una carta da giocare: ");
+
         int x = Gioco.getInstance().rispostaGiocatore();
 
         /*ora che ho la carta la metto nello stack ed alterno la richiesta di aggiungere carte allo
         stack tra i giocatori*/
-        Carta cartaGiocare = currentPlayer.getHand().rimuoviCarta(x - 1);
-        stack.inserimentoStack(cartaGiocare, currentPlayer);
-        stack.richiestaStack(currentPlayer, opponentPlayer);
-        stack.risolviStack();
+        if (x != 0) {
+            Carta cartaGiocare = currentPlayer.getHand().rimuoviCarta(x - 1);
+            stack.inserimentoStack(cartaGiocare, currentPlayer);
+            stack.richiestaStack(currentPlayer, opponentPlayer);
+            stack.risolviStack();
+        }
+
     }
 
 }

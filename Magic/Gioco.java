@@ -14,7 +14,7 @@ public class Gioco {   // SINGLETON
 
     private Gioco() {
     }  //COSTRUTTORE PRIVATO
-    
+
     /*inizializzazione dei giocatori, dei loro mazzi e della mano iniziale di ciascun giocatore*/
     public void prepare() {
         //riempio mazzo player 1-2
@@ -27,7 +27,8 @@ public class Gioco {   // SINGLETON
         player2.pescaInizio();   // pesco 5 carte player 2
         currentPlayer = player1;
         opponentPlayer = player2;
-        play();                  /*COMINCIA IL GIOCO*/
+        play();
+        /*COMINCIA IL GIOCO*/
     }
 
     /*i giocatori si alternano inserendo le varie fasi di gioco che andranno poi
@@ -39,7 +40,7 @@ public class Gioco {   // SINGLETON
         currentPlayer.fasi.fasiNormali();
         opponentPlayer.fasi.fasiNormali();
         while (!end) {
-            System.out.println("\n Giocatore " + currentPlayer.getNome() + " è il tuo turno!" );
+            System.out.println("\nGiocatore " + currentPlayer.getNome() + " è il tuo turno!");
             Fase f1 = currentPlayer.fasi.popFase();
             while (f1 != null) {
                 f1.playFase();
@@ -50,29 +51,24 @@ public class Gioco {   // SINGLETON
                 }
             }
 
-            /* DEBUG
-            System.out.println("current player:" + currentPlayer.getNome());
-            currentPlayer.hand.stampaMano();
-            System.out.println();*/
             if (!end) {
-                Giocatore player = currentPlayer;
+                Giocatore tmp = currentPlayer;
                 currentPlayer = opponentPlayer;
-                opponentPlayer = player;
+                opponentPlayer = tmp;
             }
-            currentPlayer.fasi.fasiNormali();
             opponentPlayer.fasi.fasiNormali();
 
             /*TRIGGER EFFETTI*/
         }
     }
-    
+
     /*funzione per prendere un input dalla tastiera di tipo int per la selezione nei menu*/
-    public int rispostaGiocatore(){
+    public int rispostaGiocatore() {
         Scanner input = new Scanner(System.in);
         int x = input.nextInt();
         return x;
     }
-    
+
     private static class Instance {
 
         private static final Gioco istanza = new Gioco();

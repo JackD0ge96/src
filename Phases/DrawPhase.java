@@ -18,6 +18,9 @@ public class DrawPhase implements Fase {
     public void playFase() {
         System.out.println("Draw Phase...");
         System.out.println("Hai pescato: " + pesca().getInfo());
+        System.out.println(g1.numeroCarteMano());
+        System.out.println(g1.dimensioneMazzo());
+        g1.getHand().stampaMano();
     }
     
     public Carta pesca(){
