@@ -4,20 +4,22 @@ import Cards.Omeopathy;
 import Phases.Fase;
 import java.util.Scanner;
 
-public class Gioco {   // SINGLETON
+// SINGLETON
+public class Gioco {   
 
     private Giocatore player1 = new Giocatore("player1");
     private Giocatore player2 = new Giocatore("player2");
     private Giocatore currentPlayer;
     private Giocatore opponentPlayer;
     private Stack stackGioco = new Stack();
-
+    
+    // costruttore privato
     private Gioco() {
-    }  //COSTRUTTORE PRIVATO
+    }  
 
-    /*inizializzazione dei giocatori, dei loro mazzi e della mano iniziale di ciascun giocatore*/
+    // inizializzazione dei giocatori, dei loro mazzi e della mano iniziale di ciascun giocatore
     public void prepare() {
-        //riempio mazzo player 1-2
+        // riempio mazzo player 1 e 2
         for (int i = 0; i < 20; i++) {
             player1.riempiMazzo(new Omeopathy());
             player2.riempiMazzo(new Omeopathy());
@@ -28,17 +30,21 @@ public class Gioco {   // SINGLETON
         currentPlayer = player1;
         opponentPlayer = player2;
         play();
-        /*COMINCIA IL GIOCO*/
+        /* COMINCIA IL GIOCO */
     }
 
-    /*i giocatori si alternano inserendo le varie fasi di gioco che andranno poi
-    ad eseguire estraendole dall'oggetto GestoreFasi che hanno come proprietà, inoltre 
-    alla fine di ogni fase viene controllato se uno dei due giocatori ha la vita <= 0, quindi
-    se uno dei due player ha perso*/
+    
+    /**
+     * i giocatori si alternano inserendo le varie fasi di gioco che andranno poi
+     * ad eseguire estraendole dall'oggetto GestoreFasi che hanno come proprietà, 
+     * inoltre alla fine di ogni fase viene controllato se uno dei due giocatori 
+     * ha la vita minore o uguale a 0, quindi se uno dei due player ha perso
+     */
     public void play() {
         boolean end = false;
         currentPlayer.fasi.fasiNormali();
         opponentPlayer.fasi.fasiNormali();
+        
         while (!end) {
             System.out.println("\nGiocatore " + currentPlayer.getNome() + " è il tuo turno!");
             Fase f1 = currentPlayer.fasi.popFase();
@@ -62,7 +68,7 @@ public class Gioco {   // SINGLETON
         }
     }
 
-    /*funzione per prendere un input dalla tastiera di tipo int per la selezione nei menu*/
+    // funzione per prendere un input dalla tastiera di tipo int per la selezione nei menu
     public int rispostaGiocatore() {
         Scanner input = new Scanner(System.in);
         int x = input.nextInt();
@@ -72,6 +78,7 @@ public class Gioco {   // SINGLETON
     private static class Instance {
 
         private static final Gioco istanza = new Gioco();
+        
     }
 
     public static Gioco getInstance() {

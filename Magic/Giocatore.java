@@ -41,7 +41,8 @@ public class Giocatore {
         if (deck.dimensioneMazzo() == 0) {
             hp = 0;
             return null;
-        } else {
+        } 
+        else {
             return hand.aggiungiCarta(deck);
         }
     }

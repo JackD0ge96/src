@@ -7,8 +7,7 @@ public class Mano {
 
     private final List<Carta> mano = new ArrayList<>();
 
-    public Mano() {
-    }
+    public Mano() { }
 
     public int numeroCarte() {
         return mano.size();
@@ -32,11 +31,13 @@ public class Mano {
 
     public void stampaMano() {
         int i = 0;
+        
         if (numeroCarte() == 0) {
             System.out.println("(0) Nessuna carta");
-        } else {
+        } 
+        else {
             for (Carta c : mano) {
-                System.out.println("(" + (i + 1) + ")" + c.getInfo());
+                System.out.println("(" + (i + 1) + ") " + c.getInfo());
                 i++;
             }
         }
@@ -44,18 +45,20 @@ public class Mano {
 
     Carta rimuoviIstantanea(int i) {
         int j = 0;
+        
         for (Carta c : mano) {
             if (c.getTipo().compareTo("Istantanea") == 0) {
                 if (i == 0) {
                     return mano.remove(j);
-                } else {
+                } 
+                else {
                     i--;
                 }
             }
             j++;
         }
-        /*input errato*/
-        return null;
+        
+        return null; //input errato
     }
 
     public List<Carta> getMano() {
@@ -65,6 +68,7 @@ public class Mano {
     void stampaIstantanee() {
         int i = 0;
         System.out.println("(0) Non voglio giocare nessuna carta");
+        
         if (!mano.isEmpty()) {
             for (Carta c : mano) {
                 if (c.getTipo().compareTo("Istantanea") == 0) {

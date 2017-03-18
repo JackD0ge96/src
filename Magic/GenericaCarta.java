@@ -1,9 +1,5 @@
 package Magic;
 
-/**
- *
- * @author Davide
- */
 public abstract class GenericaCarta implements Carta {
 
     private final String effetto;
@@ -35,7 +31,6 @@ public abstract class GenericaCarta implements Carta {
     public String getEffetto() {
         return effetto;
     }
-    
 
     @Override
     public String getTipo() {

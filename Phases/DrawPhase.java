@@ -1,26 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Phases;
 
 import Magic.*;
 
-/**
- *
- * @author Alessio
- */
 public class DrawPhase implements Fase {
 
     @Override
     public void playFase() {
+        System.out.println("> DRAW PHASE");
         Giocatore g1 = Gioco.getInstance().getCurrentPlayer();
-        System.out.println("Draw Phase...");
         try {
+            // stampiamo la carta pescata e il numero di carte rimanenti nel mazzo
             System.out.println("Hai pescato: " + pesca().getInfo());
-            g1.getHand().stampaMano();
+            System.out.println("Hai ancora: " + g1.dimensioneMazzo() + " carte");
         } catch (NullPointerException e) {
+            // se fallisce la pescata significa che è terminato il mazzo e quindi l'avversario ha vinto
             System.out.println("Giocatore " + g1.getNome() + " hai finito il mazzo \n" + Gioco.getInstance().getOpponentPlayer().getNome() + " HAI VINTO");
         }
     }
@@ -28,6 +21,6 @@ public class DrawPhase implements Fase {
     public Carta pesca() {
         Giocatore g1 = Gioco.getInstance().getCurrentPlayer();
         return g1.aggiungiCarta();
-
     }
+    
 }
