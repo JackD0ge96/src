@@ -86,4 +86,9 @@ public class Giocatore {
         hand.stampaIstantanee();
     }
 
+    public Campo getBoard() {
+        return board;
+    }
+    
+    
 }

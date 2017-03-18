@@ -4,28 +4,21 @@
  * and open the template in the editor.
  */
 package Phases;
-import Magic.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class UntapPhase implements Fase{
-    Giocatore g1=Gioco.getInstance().getCurrentPlayer();
-    Gioco.getInstance();
+import Magic.*;
+
+public class UntapPhase implements Fase {
+
     @Override
     public void playFase() {
         unTap();
     }
-    
-     public void unTap(){
-         boolean tap=false;
-        for(Mostro m : board){
-            if(m.isTap()==true)
+
+    public void unTap() {
+        for (Mostro m : Gioco.getInstance().getCurrentPlayer().getBoard().getMonsterBoard()) {
+            if (m.isTap() == true) {
                 m.setTap(false);
-                
-            
+            }
         }
-           
-     } 
- 
-    
+    }
 }
