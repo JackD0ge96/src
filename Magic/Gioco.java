@@ -1,6 +1,6 @@
 package Magic;
 
-import Cards.Omeopathy;
+import Cards.*;
 import Phases.Fase;
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ public class Gioco {
 
     // inizializzazione dei giocatori, dei loro mazzi e della mano iniziale di ciascun giocatore
     public void prepare() {
-        // riempio mazzo player 1 e 2
+        // riempio mazzo player 1 e 2 con 20 carte
         for (int i = 0; i < 20; i++) {
             player1.riempiMazzo(new Omeopathy());
             player2.riempiMazzo(new Omeopathy());
