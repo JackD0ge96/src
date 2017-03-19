@@ -2,6 +2,12 @@ package Phases;
 
 import Magic.*;
 
+/**
+ * Viene creata la DrawPhase, il giocatore specificato rimuoverà la prima carta
+ * dal suo mazzo e verrà inserita nella sua mano, se il mazzo è finito e si
+ * tenta di pescare verrà generata una eccezione, che verrà però intercettata e
+ * sarà dichiarato come vincitore l'opponetPlayer
+ */
 public class DrawPhase implements Fase {
 
     @Override
@@ -22,5 +28,5 @@ public class DrawPhase implements Fase {
         Giocatore g1 = Gioco.getInstance().getCurrentPlayer();
         return g1.aggiungiCarta();
     }
-    
+
 }

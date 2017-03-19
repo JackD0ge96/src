@@ -1,5 +1,13 @@
 package Magic;
 
+/**
+ * Nel giocatore troviamo le proprietà che abbiamo descritto in precedenza,
+ * insieme alle funzioni che demandano a loro volta la risoluzione di queste
+ * nella maggior parte dei casi alla struttura dati nella classe di competenza.
+ * In questo modo sarà la classe che contiene la mano del giocatore a dire
+ * quante carte contiene, diminuendo il lavoro di ogni singola funzione
+ * demandandolo ad altre funzioni più piccole e di più facile lettura/scrittura
+ */
 public class Giocatore {
 
     private final String nome;
@@ -7,18 +15,10 @@ public class Giocatore {
     Mazzo deck = new Mazzo();
     Mano hand = new Mano();
     GestoreFasi fasi = new GestoreFasi();
-    Campo board= new Campo();
+    Campo board = new Campo();
 
     public Giocatore(String nome) {
         this.nome = nome;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
     }
 
     public int dimensioneMazzo() {
@@ -41,8 +41,7 @@ public class Giocatore {
         if (deck.dimensioneMazzo() == 0) {
             hp = 0;
             return null;
-        } 
-        else {
+        } else {
             return hand.aggiungiCarta(deck);
         }
     }
@@ -59,18 +58,6 @@ public class Giocatore {
             int x = Gioco.getInstance().rispostaGiocatore();
             hand.rimuoviCarta(x - 1);
         }
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public Mazzo getDeck() {
-        return deck;
-    }
-
-    public Mano getHand() {
-        return hand;
     }
 
     int getIstantanee() {
@@ -90,6 +77,24 @@ public class Giocatore {
     public Campo getBoard() {
         return board;
     }
-    
-    
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Mazzo getDeck() {
+        return deck;
+    }
+
+    public Mano getHand() {
+        return hand;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 }

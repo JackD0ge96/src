@@ -2,6 +2,10 @@ package Phases;
 
 import Magic.*;
 
+/**
+ * i mostri che sono stati tappati nella fase di combat verrano untappati in
+ * questa fase, le carte hanno la proprietà boolean tap che verrà qui gestita
+ */
 public class UntapPhase implements Fase {
 
     @Override
